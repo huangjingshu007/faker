@@ -26,6 +26,10 @@ matrix:
       env: TOXENV=flake8
     - python: 3.7
       env: TOXENV=checkmanifest
+    - os: linux
+      env:
+        - TOXENV=32bit INSTALL_REQUIREMENTS="apt-get update; DEBIAN_FRONTEND=noninteractive apt-get install -yq python3 locales python3-pip python3-tox debianutils; pip3 install; locale-gen en_US.UTF-8"
+
 
 install:
   - pip install tox
